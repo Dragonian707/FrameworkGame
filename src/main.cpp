@@ -3,8 +3,13 @@
 constexpr auto SCREEN_WIDTH  = 800;
 constexpr auto SCREEN_HEIGHT = 450;
 
+#include "resourcemanager.h"
 int main()
 {
+	//eventual outcome
+	//Game game = new Game();
+	//game.Play();
+
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Window title");
     SetTargetFPS(60);
 
