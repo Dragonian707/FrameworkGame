@@ -9,7 +9,10 @@ class ResourceManager
 {
 public:
 
-	static ResourceManager* Instance();
+	static ResourceManager* Instance(); //singleton
+
+	/// @brief Get a texture from the specified path
+	Texture2D GetTexture(std::string path);
 
 private:
 

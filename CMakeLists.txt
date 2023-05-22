@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(FrameworkGame C CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 # Setting parameters for raylib
 set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE) # don't build the supplied examples
@@ -15,6 +15,8 @@ add_executable(${PROJECT_NAME}
 		src/startscene.h
 		src/resourcemanager.cpp
 		src/resourcemanager.h
+		src/scene.cpp
+		src/scene.h
 	)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
