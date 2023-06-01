@@ -4,7 +4,7 @@
 
 #include "resourcemanager.h"
 
-
+ResourceManager* ResourceManager::_instance = nullptr;
 
 ResourceManager::ResourceManager()
 {
@@ -40,4 +40,3 @@ Texture2D ResourceManager::GetTexture(std::string path)
 	return texture;
 }
 
-ResourceManager* ResourceManager::_instance = nullptr;
