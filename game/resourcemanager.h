@@ -14,6 +14,10 @@ public:
 	/// @brief Get a texture from the specified path
 	Texture2D GetTexture(std::string path);
 
+	Font GetFont() { return _font; };
+
+	void Cleanup();
+
 private:
 
 	static ResourceManager* _instance;
@@ -23,6 +27,7 @@ private:
 	virtual ~ResourceManager();
 
 	std::map<std::string, Texture2D> textures;
+	Font _font;
 };
 
 #endif

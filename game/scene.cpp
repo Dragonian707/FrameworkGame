@@ -21,7 +21,12 @@ Scene::~Scene()
 
 void Scene::UpdateScene(float deltatime)
 {
+	this->update(deltatime);
 
+	for (Object* obj : objects)
+	{
+		obj->update(deltatime);
+	}
 }
 
 void Scene::AddObject(Object* object)

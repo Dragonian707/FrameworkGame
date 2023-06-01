@@ -21,6 +21,10 @@ add_executable(${PROJECT_NAME}
 	game/core.h
 	game/object.cpp
 	game/object.h
+	game/testobj.cpp
+	game/testobj.h
+	game/spriteobject.cpp
+	game/spriteobject.h
 )
 file(
 	COPY game/assets
