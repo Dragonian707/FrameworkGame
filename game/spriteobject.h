@@ -8,6 +8,9 @@
 
 class SpriteObject : public Object
 {
+protected:
+	Texture2D texture;
+
 public:
 	/// @brief Constructor
 	SpriteObject(std::string filePath);
@@ -18,9 +21,9 @@ public:
 
 	void Draw();
 
+	virtual void UpdateObject(float deltatime);
+
 private:
-	Texture2D texture;
-	void Init(std::string filePath);
 };
 
 #endif

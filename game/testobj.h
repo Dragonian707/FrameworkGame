@@ -19,7 +19,8 @@ public:
 	virtual void update(float deltaTime);
 
 private:
-
+	void CheckBorders();
+	Vector2 speed;
 };
 
 #endif

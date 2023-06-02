@@ -15,7 +15,7 @@ public:
 
 	void AddObject(Object* object);
 
-	void UpdateScene(float deltatime);
+	virtual void UpdateObject(float deltatime);
 
 private:
 	std::vector<Object*> objects;

@@ -11,8 +11,9 @@ add_subdirectory(libs/raylib)
 
 add_executable(${PROJECT_NAME} 
 	game/main.cpp
-	# game/startscene.cpp
-	# game/startscene.h
+	game/settings.h
+	game/testscene.cpp
+	game/testscene.h
 	game/scene.h
 	game/scene.cpp
 	game/resourcemanager.h

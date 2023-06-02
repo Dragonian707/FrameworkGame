@@ -1,15 +1,16 @@
-#ifndef STARTSCENE_H
-#define STARTSCENE_H
+#ifndef TESTSCENE_H
+#define TESTSCENE_H
 
 #include "scene.h"
+#include "testobj.h"
 
-class StartScene : public Scene
+class TestScene : public Scene
 {
 public:
 	/// @brief Constructor
-	StartScene();
+	TestScene();
 	/// @brief Destructor
-	virtual ~StartScene();
+	virtual ~TestScene();
 
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
@@ -17,7 +18,8 @@ public:
 	virtual void update(float deltaTime);
 
 private:
-
+	TestOBJ* i;
+	TestOBJ* j;
 };
 
-#endif /* SCENE00_H */
+#endif

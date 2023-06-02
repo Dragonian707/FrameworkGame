@@ -5,6 +5,8 @@
 #include "resourcemanager.h"
 #include <vector>
 
+#include "settings.h"
+
 class Object
 {
 public:
@@ -17,6 +19,8 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime) = 0;
+
+	virtual void UpdateObject(float deltatime) = 0;
 
 	//position rotation and scale
 	Vector2 position;

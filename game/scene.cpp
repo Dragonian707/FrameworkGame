@@ -19,13 +19,13 @@ Scene::~Scene()
 	}
 }
 
-void Scene::UpdateScene(float deltatime)
+void Scene::UpdateObject(float deltatime)
 {
 	this->update(deltatime);
 
 	for (Object* obj : objects)
 	{
-		obj->update(deltatime);
+		obj->UpdateObject(deltatime);
 	}
 }
 

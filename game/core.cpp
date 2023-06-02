@@ -22,7 +22,7 @@ void Core::Run(Scene* scene)
 	SetDeltatime();
 
 	//update the scene and the objects in it
-	scene->UpdateScene(deltaTime);
+	scene->UpdateObject(deltaTime);
 }
 
 void Core::SetDeltatime()

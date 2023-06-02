@@ -20,6 +20,12 @@ SpriteObject::~SpriteObject()
 	
 }
 
+void SpriteObject::UpdateObject(float deltatime)
+{
+	this->update(deltatime);
+	this->Draw();
+}
+
 void SpriteObject::Draw()
 {
 	Rectangle sourceRec = { 0.0f, 0.0f, (float)texture.width, (float)texture.height };
