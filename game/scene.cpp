@@ -12,10 +12,10 @@ Scene::Scene()
 
 Scene::~Scene()
 {
-	for (size_t i = 0; i < objects.size(); i++)
+	for (size_t i = 0; i < sprites.size(); i++)
 	{
-		delete objects[i];
-		objects[i] = nullptr;
+		delete sprites[i];
+		sprites[i] = nullptr;
 	}
 }
 
@@ -23,13 +23,13 @@ void Scene::UpdateObject(float deltatime)
 {
 	this->update(deltatime);
 
-	for (Object* obj : objects)
+	for (Sprite* spr : sprites)
 	{
-		obj->UpdateObject(deltatime);
+		spr->UpdateObject(deltatime);
 	}
 }
 
-void Scene::AddObject(Object* object)
+void Scene::AddObject(Sprite* sprite)
 {
-	objects.push_back(object);
+	sprites.push_back(sprite);
 }

@@ -36,7 +36,19 @@ Texture2D ResourceManager::GetTexture(std::string path)
 		return textures[path];
 	}
 	std::cout << "New texture made" << std::endl; 
-	Texture2D texture = LoadTexture(path.c_str());
+	Texture2D texture;
+	try
+	{
+		texture = LoadTexture(path.c_str());
+		if (texture.id <= 0)
+		{
+			throw texture;
+		}
+	}
+	catch (...)
+	{
+		texture = LoadTexture("assets/placeholder.png");
+	}
 	textures[path] = texture;
 	return texture;
 }

@@ -18,11 +18,16 @@ Core::~Core()
 
 void Core::Run(Scene* scene)
 {
+	BeginDrawing();
+	ClearBackground(BLACK);
+
 	//set the deltatime
 	SetDeltatime();
 
 	//update the scene and the objects in it
 	scene->UpdateObject(deltaTime);
+
+	EndDrawing();
 }
 
 void Core::SetDeltatime()

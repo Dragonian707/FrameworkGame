@@ -1,18 +1,18 @@
 #include <fstream>
 #include <sstream>
 
-#include "object.h"
+#include "sprite.h"
 
 
 
-Object::Object()
+Sprite::Sprite()
 {
 	position = Vector2(0.0f, 0.0f);
 	rotation = 0.0f;
 	scale = 1.0;
 }
 
-Object::~Object()
+Sprite::~Sprite()
 {
 	
 }

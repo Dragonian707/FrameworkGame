@@ -2,10 +2,10 @@
 #define SCENE_H
 
 #include "raylib.h"
-#include "object.h"
+#include "sprite.h"
 #include <vector>
 
-class Scene : public Object
+class Scene : public Sprite
 {
 public:
 	/// @brief Constructor
@@ -13,12 +13,12 @@ public:
 	/// @brief Destructor
 	virtual ~Scene();
 
-	void AddObject(Object* object);
+	void AddObject(Sprite* object);
 
-	virtual void UpdateObject(float deltatime);
-
+	friend class Core;
 private:
-	std::vector<Object*> objects;
+	virtual void UpdateObject(float deltatime);
+	std::vector<Sprite*> sprites;
 };
 
 #endif

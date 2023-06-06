@@ -2,7 +2,7 @@
 #define TESTSCENE_H
 
 #include "scene.h"
-#include "testobj.h"
+#include "spike.h"
 
 class TestScene : public Scene
 {
@@ -18,8 +18,7 @@ public:
 	virtual void update(float deltaTime);
 
 private:
-	TestOBJ* i;
-	TestOBJ* j;
+	Spike* spike;
 };
 
 #endif

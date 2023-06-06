@@ -1,17 +1,17 @@
-#ifndef TESTOBJ_H
-#define TESTOBJ_H
+#ifndef SPIKE_H
+#define SPIKE_H
 
 #include "raylib.h"
-#include "spriteobject.h"
+#include "drawsprite.h"
 #include <vector>
 
-class TestOBJ : public SpriteObject
+class Spike : public DrawSprite
 {
 public:
 	/// @brief Constructor
-	TestOBJ(std::string filePath);
+	Spike();
 	/// @brief Destructor
-	virtual ~TestOBJ();
+	virtual ~Spike();
 
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
@@ -19,8 +19,8 @@ public:
 	virtual void update(float deltaTime);
 
 private:
-	void CheckBorders();
-	Vector2 speed;
+	//void CheckBorders();
+	int speed;
 };
 
 #endif

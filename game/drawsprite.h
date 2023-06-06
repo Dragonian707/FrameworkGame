@@ -1,21 +1,21 @@
-#ifndef SPRITEOBJECT_H
-#define SPRITEOBJECT_H
+#ifndef DRAWSPRITE_H
+#define DRAWSPRITE_H
 
 #include "raylib.h"
 #include "resourcemanager.h"
-#include "object.h"
+#include "sprite.h"
 #include <vector>
 
-class SpriteObject : public Object
+class DrawSprite : public Sprite
 {
 protected:
 	Texture2D texture;
 
 public:
 	/// @brief Constructor
-	SpriteObject(std::string filePath);
+	DrawSprite(std::string filePath);
 	/// @brief Destructor
-	virtual ~SpriteObject();
+	virtual ~DrawSprite();
 
 	Color color;
 

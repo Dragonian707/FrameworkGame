@@ -1,32 +1,32 @@
 #include <fstream>
 #include <sstream>
 
-#include "spriteobject.h"
+#include "drawsprite.h"
 
 
 
-SpriteObject::SpriteObject(std::string filePath) : Object()
+DrawSprite::DrawSprite(std::string filePath) : Sprite()
 {
 	texture = ResourceManager::Instance()->GetTexture(filePath);
-	if (texture.id <= 0)
-	{
-		texture = ResourceManager::Instance()->GetTexture("assets/placeholder.png");
-	}
+	//if (texture.id <= 0)
+	//{
+	//	texture = ResourceManager::Instance()->GetTexture("assets/placeholder.png");
+	//}
 	color = WHITE;
 }
 
-SpriteObject::~SpriteObject()
+DrawSprite::~DrawSprite()
 {
 	
 }
 
-void SpriteObject::UpdateObject(float deltatime)
+void DrawSprite::UpdateObject(float deltatime)
 {
 	this->update(deltatime);
 	this->Draw();
 }
 
-void SpriteObject::Draw()
+void DrawSprite::Draw()
 {
 	Rectangle sourceRec = { 0.0f, 0.0f, (float)texture.width, (float)texture.height };
 	Rectangle destRec = { position.x, position.y, (float)texture.width * scale, (float)texture.height * scale };

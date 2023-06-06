@@ -12,20 +12,23 @@ add_subdirectory(libs/raylib)
 add_executable(${PROJECT_NAME} 
 	game/main.cpp
 	game/settings.h
-	game/testscene.cpp
-	game/testscene.h
-	game/scene.h
-	game/scene.cpp
 	game/resourcemanager.h
 	game/resourcemanager.cpp
 	game/core.cpp
 	game/core.h
-	game/object.cpp
-	game/object.h
-	game/testobj.cpp
-	game/testobj.h
-	game/spriteobject.cpp
-	game/spriteobject.h
+	game/sprite.cpp
+	game/sprite.h
+	game/drawsprite.cpp
+	game/drawsprite.h
+	game/textsprite.cpp
+	game/textsprite.h
+	game/scene.h
+	game/scene.cpp
+
+	game/testscene.cpp
+	game/testscene.h
+	game/spike.cpp
+	game/spike.h
 )
 file(
 	COPY game/assets
