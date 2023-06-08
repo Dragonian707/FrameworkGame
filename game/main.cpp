@@ -28,6 +28,8 @@ int main()
 		Vector2 pos = Vector2(SCRWIDTH / 2 - text_size.x / 2, text_size.y + 10);
 		DrawTextEx(rs->GetFont(), text, pos, 30, 1, WHITE);
 		//--------------end of text drawing----------------------------//
+
+		//std::cout << text_size.x << "     " << text_size.y << std::endl;
     }
 
 	rs->Cleanup();

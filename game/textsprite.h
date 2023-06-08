@@ -1,38 +1,32 @@
-#ifndef SPRITE_H
-#define SPRITE_H
+#ifndef TEXTSPRITE_H
+#define TEXTSPRITE_H
 
 #include "raylib.h"
-#include "resourcemanager.h"
-#include <vector>
+#include "sprite.h"
 
-#include "settings.h"
-
-class Sprite
+class TextSprite : public Sprite
 {
 public:
-	friend class Scene;
-
 	/// @brief Constructor
-	Sprite();
+	TextSprite();
 	/// @brief Destructor
-	virtual ~Sprite();
-
-	/// @brief update is automatically called every frame
-	/// @param deltaTime the elapsed time in seconds
-	/// @return void
-	virtual void update(float deltaTime) = 0;
+	virtual ~TextSprite();
 
 
-	//position rotation and scale
-	Vector2 position;
-	float rotation;
-	float scale;
+	virtual void UpdateObject(float deltatime);
+	virtual void update(float deltatime);
 
+	void SetMessage(std::string ms) { message = ms; };
+	void CenterText(bool centered) { centerText = centered; };
+
+	Color color;
 private:
+	void Draw();
 
-protected:
-	virtual void UpdateObject(float deltatime) = 0;
+	std::string message;
+	bool centerText = true;
 
+	Font font = ResourceManager::Instance()->GetFont();
 };
 
 #endif

@@ -14,6 +14,7 @@ public:
 	virtual ~Scene();
 
 	void AddObject(Sprite* object);
+	void DeleteObject(Sprite* object);
 
 	friend class Core;
 private:

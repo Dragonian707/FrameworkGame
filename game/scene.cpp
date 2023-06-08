@@ -33,3 +33,15 @@ void Scene::AddObject(Sprite* sprite)
 {
 	sprites.push_back(sprite);
 }
+
+void Scene::DeleteObject(Sprite* sprite)
+{
+	for (int i = 0; i < sprites.size(); i++)
+	{
+		if (sprites[i] == sprite)
+		{
+			sprites.erase(sprites.begin() + i);
+			delete sprite;
+		}
+	}
+}

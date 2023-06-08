@@ -5,10 +5,18 @@
 
 
 
-Spike::Spike() : DrawSprite("assets/spike.png")
+Spike::Spike(bool toMouse, Vector2 pos) : DrawSprite("assets/spike.png")
 {
-	speed = 100;
-	position = Vector2(SCRWIDTH / 2, SCRHEIGHT / 2);
+	speed = 425;
+	lifeforce = 5;
+	timer = 0;
+	position = pos;
+	color = DARKBLUE;
+	if (toMouse)
+	{
+		color = BLUE;
+		PointToMouse();
+	}
 }
 
 Spike::~Spike()
@@ -18,11 +26,29 @@ Spike::~Spike()
 
 void Spike::update(float deltatime)
 {
-	/*-----------------point towards mouse--------------------------------------
-	Vector2 mousepos = GetMousePosition();
-	Vector2 lookPos = Vector2(position.x - mousepos.x, position.y - mousepos.y);
-	rotation = atan2(lookPos.y, lookPos.x) * RAD2DEG - 90;*/
-
-	
+	Move(deltatime);
+	timer += deltatime;
+	if (timer >= lifeforce)
+	{
+		dead = true;
+	}
 }
 
+void Spike::PointToMouse()
+{
+	Vector2 mousepos = GetMousePosition();
+	Vector2 lookPos = Vector2(mousepos.x - position.x, mousepos.y - position.y);
+	rotation = atan2(lookPos.y, lookPos.x) * RAD2DEG;
+}
+
+void Spike::Move(float deltatime)
+{
+	//move forward
+	float x = cos(rotation * DEG2RAD);
+	float y = sin(rotation * DEG2RAD);
+
+	Vector2 velocity = Vector2(x, y);
+	Vector2Normalize(velocity);
+	
+	position = Vector2Add(position, Vector2(velocity.x * speed * deltatime, velocity.y * speed * deltatime));
+}

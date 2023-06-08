@@ -9,7 +9,7 @@ class Spike : public DrawSprite
 {
 public:
 	/// @brief Constructor
-	Spike();
+	Spike(bool toMouse, Vector2 pos);
 	/// @brief Destructor
 	virtual ~Spike();
 
@@ -18,9 +18,16 @@ public:
 	/// @return void
 	virtual void update(float deltaTime);
 
+	bool dead = false;
+
 private:
 	//void CheckBorders();
 	int speed;
+	float lifeforce;
+	float timer;
+	void PointToMouse();
+
+	void Move(float deltatime);
 };
 
 #endif
