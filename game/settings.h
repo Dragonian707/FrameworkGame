@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-#define SCRWIDTH 1280
-#define SCRHEIGHT 720
+#define SCRWIDTH 750
+#define SCRHEIGHT 750
 
 #define WINDOWNAME "Music_Dodge"
 

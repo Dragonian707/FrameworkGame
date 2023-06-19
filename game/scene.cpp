@@ -25,7 +25,14 @@ void Scene::UpdateObject(float deltatime)
 
 	for (Sprite* spr : sprites)
 	{
-		spr->UpdateObject(deltatime);
+		if (spr == nullptr)
+		{
+			DeleteObject(spr);
+		}
+		else 
+		{
+			spr->UpdateObject(deltatime);
+		}
 	}
 }
 

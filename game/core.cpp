@@ -9,6 +9,7 @@ Core::Core()
 {
 	deltaTime = 0;
 	lastTime = GetTime();
+	InitAudioDevice();
 }
 
 Core::~Core()

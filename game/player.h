@@ -1,17 +1,17 @@
-#ifndef SPIKE_H
-#define SPIKE_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include "raylib.h"
 #include "drawsprite.h"
 #include <vector>
 
-class Spike : public DrawSprite
+class Player : public DrawSprite
 {
 public:
 	/// @brief Constructor
-	Spike(bool toMouse, Vector2 pos);
+	Player();
 	/// @brief Destructor
-	virtual ~Spike();
+	virtual ~Player();
 
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
@@ -21,14 +21,6 @@ public:
 	bool dead = false;
 
 private:
-	//void CheckBorders();
-	int speed;
-	float lifeforce;
-	float timer;
-	void PointToMouse();
-
-	Sound fx;
-
 	void Move(float deltatime);
 };
 

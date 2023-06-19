@@ -8,31 +8,55 @@
 
 TestScene::TestScene()
 {
-	spike = new Spike(true, Vector2(SCRWIDTH + 100, SCRHEIGHT + 100));
-	AddObject(spike);
+	testTrack = ResourceManager::Instance()->GetMusic("assets/drummin.ogg");
+	//PlayMusicStream(testTrack);
 
-	TextSprite* text = new TextSprite;
-	text->position = Vector2(SCRWIDTH / 2, SCRHEIGHT / 2);
-	text->SetMessage("See you later fucker!");
-	AddObject(text);
+	srand(time(NULL));
+
+	spawner = new Spawner();
+	player = new Player();
+
+	AddObject(player);
+
+	HideCursor();
 }
 
 TestScene::~TestScene()
 {
-	delete spike;
-	spike = nullptr;
+
 }
 
 void TestScene::update(float deltaTime)
 {
-	if (spike->dead && spike != nullptr)
+	UpdateMusicStream(testTrack);
+	timer += deltaTime;
+	
+	if (timer >= 0.5f)
 	{
-		DeleteObject(spike);
-		spike = nullptr;
+		timer = 0;
+		std::vector<Spike*> sp;
+
+		bool pattern = false;
+		if (rand() % 4 == 0)
+		{
+			pattern = true;
+		}
+		sp = spawner->Spawn(pattern);
+
+		for (Spike* s : sp)
+		{
+			spikes.push_back(s);
+			AddObject(s);
+		}
 	}
-	if (spike == nullptr)
+
+	for (int i = spikes.size() - 1; i >= 0; i--) 
 	{
-		spike = new Spike(true, Vector2(SCRWIDTH + 100, SCRHEIGHT / 2));
-		AddObject(spike);
+		if (spikes[i]->dead)
+		{
+			DeleteObject(spikes[i]);
+			spikes[i] = nullptr;
+			spikes.erase(spikes.begin() + i);
+		}
 	}
 }

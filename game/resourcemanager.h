@@ -15,6 +15,8 @@ public:
 	Texture2D GetTexture(std::string path);
 
 	Sound GetSound(std::string path);
+	
+	Music GetMusic(std::string path);
 
 	Font GetFont() { return _font; };
 
@@ -30,6 +32,7 @@ private:
 
 	std::map<std::string, Texture2D> textures;
 	std::map<std::string, Sound> sounds;
+	std::map<std::string, Music> tracks;
 	Font _font;
 };
 

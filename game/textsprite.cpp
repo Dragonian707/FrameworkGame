@@ -13,10 +13,6 @@ TextSprite::TextSprite()
 	message = "NO MESSAGE";
 	color = WHITE;
 }
-void TextSprite::update(float deltatime)
-{
-
-}
 
 TextSprite::~TextSprite()
 {

@@ -2,7 +2,10 @@
 #define TESTSCENE_H
 
 #include "scene.h"
-#include "spike.h"
+#include "spawner.h"
+#include "player.h"
+
+//class Spawner;
 
 class TestScene : public Scene
 {
@@ -18,7 +21,13 @@ public:
 	virtual void update(float deltaTime);
 
 private:
-	Spike* spike;
+	Music testTrack;
+	Spawner* spawner;
+	Player* player;
+
+	std::vector<Spike*> spikes;
+
+	float timer = 0;
 };
 
 #endif

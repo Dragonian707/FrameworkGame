@@ -19,7 +19,6 @@ ResourceManager::~ResourceManager()
  
 ResourceManager* ResourceManager::Instance()
 {
-	std::cout << "ResourceManager called" << std::endl;
 	if (ResourceManager::_instance == nullptr)
 	{
 		_instance = new ResourceManager();
@@ -29,13 +28,10 @@ ResourceManager* ResourceManager::Instance()
 
 Texture2D ResourceManager::GetTexture(std::string path)
 {
-	std::cout << "GetTexture called" << std::endl;
 	if (textures.contains(path))
 	{
-		std::cout << "Existing texture send" << std::endl;
 		return textures[path];
 	}
-	std::cout << "New texture made" << std::endl; 
 	Texture2D texture;
 	try
 	{
@@ -55,17 +51,26 @@ Texture2D ResourceManager::GetTexture(std::string path)
 
 Sound ResourceManager::GetSound(std::string path)
 {
-	std::cout << "GetSound called" << std::endl;
 	if (sounds.contains(path))
 	{
-		std::cout << "existing sound sent" << std::endl;
 		return sounds[path];
 	}
-	std::cout << "Loading new sound" << std::endl;
 	Sound sound;
 	sound = LoadSound(path.c_str());
 	sounds[path] = sound;
 	return sound;
+}
+
+Music ResourceManager::GetMusic(std::string path)
+{
+	if (tracks.contains(path))
+	{
+		return tracks[path];
+	}
+	Music music;
+	music = LoadMusicStream(path.c_str());
+	tracks[path] = music;
+	return music;
 }
 
 void ResourceManager::Cleanup()
@@ -75,6 +80,19 @@ void ResourceManager::Cleanup()
 		std::cout << "unloading " << text_it->first << std::endl;
 		UnloadTexture(text_it->second);
 	}
+
+	std::map<std::string, Sound>::iterator sound_it;
+	for (sound_it = sounds.begin(); sound_it != sounds.end(); ++sound_it) {
+		std::cout << "unloading " << sound_it->first << std::endl;
+		UnloadSound(sound_it->second);
+	}
+
+	std::map<std::string, Music>::iterator music_it;
+	for (music_it = tracks.begin(); music_it != tracks.end(); ++music_it) {
+		std::cout << "unloading " << music_it->first << std::endl;
+		UnloadMusicStream(music_it->second);
+	}
+
 	std::cout << "unloading font\n";
 	UnloadFont(_font);
 }

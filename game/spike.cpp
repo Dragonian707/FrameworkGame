@@ -7,21 +7,25 @@
 
 Spike::Spike(bool toMouse, Vector2 pos) : DrawSprite("assets/spike.png")
 {
-	speed = 425;
+	speed = 400;
 	lifeforce = 5;
 	timer = 0;
 	position = pos;
 	color = DARKBLUE;
 	if (toMouse)
 	{
-		color = BLUE;
+		color = RED;
 		PointToMouse();
 	}
+
+	fx = ResourceManager::Instance()->GetSound("assets/Sound_effect.mp3");
+	SetSoundVolume(fx, 0.2f);
+	PlaySound(fx);
 }
 
 Spike::~Spike()
 {
-
+	std::cout << "I ded\n";
 }
 
 void Spike::update(float deltatime)
