@@ -25,6 +25,11 @@ void TextSprite::UpdateObject(float deltatime)
 	Draw();
 }
 
+void TextSprite::update(float deltatime)
+{
+	;
+}
+
 void TextSprite::Draw()
 {
 	if (centerText)

@@ -17,15 +17,11 @@ Spike::Spike(bool toMouse, Vector2 pos) : DrawSprite("assets/spike.png")
 		color = RED;
 		PointToMouse();
 	}
-
-	fx = ResourceManager::Instance()->GetSound("assets/Sound_effect.mp3");
-	SetSoundVolume(fx, 0.2f);
-	PlaySound(fx);
 }
 
 Spike::~Spike()
 {
-	std::cout << "I ded\n";
+	//std::cout << "I ded\n";
 }
 
 void Spike::update(float deltatime)

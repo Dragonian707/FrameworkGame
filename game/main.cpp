@@ -7,7 +7,8 @@
 
 int main()
 {
-    InitWindow(SCRWIDTH, SCRHEIGHT, WINDOWNAME);
+	SetConfigFlags(FLAG_WINDOW_UNDECORATED);
+	InitWindow(SCRWIDTH, SCRHEIGHT, WINDOWNAME);
 
 	ResourceManager* rs = ResourceManager::Instance();
 

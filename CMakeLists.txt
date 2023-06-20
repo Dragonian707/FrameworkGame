@@ -25,14 +25,18 @@ add_executable(${PROJECT_NAME}
 	game/scene.h
 	game/scene.cpp
 
-	game/testscene.cpp
-	game/testscene.h
+	game/gamescene.cpp
+	game/gamescene.h
 	game/spike.cpp
 	game/spike.h
 	game/player.cpp
 	game/player.h
 	game/spawner.cpp
 	game/spawner.h
+	game/scenemanager.cpp
+	game/scenemanager.h
+	game/startscene.cpp
+	game/startscene.h
 )
 file(
 	COPY game/assets

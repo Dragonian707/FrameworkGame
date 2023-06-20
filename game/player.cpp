@@ -18,6 +18,10 @@ Player::~Player()
 void Player::update(float deltatime)
 {
 	Move(deltatime);
+	if (dead)
+	{
+		color = BLACK;
+	}
 }
 
 void Player::Move(float deltatime)

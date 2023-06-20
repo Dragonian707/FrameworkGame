@@ -19,15 +19,13 @@ public:
 	virtual void update(float deltaTime);
 
 	bool dead = false;
+	int speed;
 
 private:
 	//void CheckBorders();
-	int speed;
 	float lifeforce;
 	float timer;
 	void PointToMouse();
-
-	Sound fx;
 
 	void Move(float deltatime);
 };

@@ -14,6 +14,7 @@ public:
 
 
 	virtual void UpdateObject(float deltatime);
+	virtual void update(float deltatime);
 
 	void SetMessage(std::string ms) { message = ms; };
 	void CenterText(bool centered) { centerText = centered; };
