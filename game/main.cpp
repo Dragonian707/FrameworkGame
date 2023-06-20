@@ -1,7 +1,7 @@
 #include "raylib.h"
 
 #include "resourcemanager.h"
-#include "testscene.h"
+#include "gamescene.h"
 #include "core.h"
 #include "settings.h"
 
@@ -12,7 +12,7 @@ int main()
 
 	ResourceManager* rs = ResourceManager::Instance();
 
-	TestScene* scene = new TestScene();
+	GameScene* scene = new GameScene();
 	Core core;
 
     while (!WindowShouldClose()) //while (core.Run(game)) { ; }

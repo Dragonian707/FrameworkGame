@@ -1,20 +1,15 @@
-#ifndef TESTSCENE_H
-#define TESTSCENE_H
+#ifndef STARTSCENE_H
+#define STARTSCENE_H
 
 #include "scene.h"
-#include "spawner.h"
-#include "player.h"
-#include "textsprite.h"
 
-//class Spawner;
-
-class TestScene : public Scene
+class StartScene : public Scene
 {
 public:
 	/// @brief Constructor
-	TestScene();
+	StartScene();
 	/// @brief Destructor
-	virtual ~TestScene();
+	virtual ~StartScene();
 
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
@@ -22,17 +17,6 @@ public:
 	virtual void update(float deltaTime);
 
 private:
-	Music testTrack;
-	Spawner* spawner;
-	Player* player;
-
-	std::vector<Spike*> spikes;
-
-	float timer = 0;
-
-	TextSprite* failtext;
-
-	void ResetScene();
 };
 
 #endif
