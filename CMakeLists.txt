@@ -37,6 +37,10 @@ add_executable(${PROJECT_NAME}
 	game/scenemanager.h
 	game/startscene.cpp
 	game/startscene.h
+	game/button.cpp
+	game/button.h
+	game/pausehud.cpp
+	game/pausehud.h
 )
 file(
 	COPY game/assets

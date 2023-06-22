@@ -5,19 +5,20 @@
 #include "core.h"
 #include "settings.h"
 
+#include "scenemanager.h"
+
 int main()
 {
 	SetConfigFlags(FLAG_WINDOW_UNDECORATED);
 	InitWindow(SCRWIDTH, SCRHEIGHT, WINDOWNAME);
 
 	ResourceManager* rs = ResourceManager::Instance();
-
-	GameScene* scene = new GameScene();
+	SceneManager* s = SceneManager::Instance();
 	Core core;
 
-    while (!WindowShouldClose()) //while (core.Run(game)) { ; }
+    while (core.running) //while (core.Run(game)) { ; }
     {
-		core.Run(scene);
+		core.Run(s->GetActiveScene());
     }
 
 	rs->Cleanup();

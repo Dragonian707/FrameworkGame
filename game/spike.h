@@ -19,6 +19,7 @@ public:
 	virtual void update(float deltaTime);
 
 	bool dead = false;
+	bool paused = false;
 	int speed;
 
 private:

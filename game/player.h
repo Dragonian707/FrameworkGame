@@ -19,6 +19,10 @@ public:
 	virtual void update(float deltaTime);
 
 	bool dead = false;
+	bool paused = false;
+	bool ready = true;
+
+	bool CheckReady();
 
 private:
 	void Move(float deltatime);

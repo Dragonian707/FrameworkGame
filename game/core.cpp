@@ -20,7 +20,7 @@ Core::~Core()
 void Core::Run(Scene* scene)
 {
 	BeginDrawing();
-	ClearBackground(BLACK);
+	ClearBackground(BACKGROUND);
 
 	//set the deltatime
 	SetDeltatime();
@@ -29,6 +29,7 @@ void Core::Run(Scene* scene)
 	scene->UpdateObject(deltaTime);
 
 	EndDrawing();
+	if (scene->state == Scene::State::closegame) { running = false; };
 }
 
 void Core::SetDeltatime()

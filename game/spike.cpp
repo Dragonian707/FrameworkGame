@@ -21,13 +21,16 @@ Spike::Spike(bool toMouse, Vector2 pos) : DrawSprite("assets/spike.png")
 
 Spike::~Spike()
 {
-	//std::cout << "I ded\n";
+	
 }
 
 void Spike::update(float deltatime)
 {
-	Move(deltatime);
-	timer += deltatime;
+	if (!paused)
+	{
+		Move(deltatime);
+		timer += deltatime;
+	}
 	if (timer >= lifeforce)
 	{
 		dead = true;

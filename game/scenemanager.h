@@ -3,15 +3,30 @@
 
 #include "raylib.h"
 
+#include "scene.h"
+#include "startscene.h"
+#include "gamescene.h"
+
 class SceneManager
 {
 public:
+	static SceneManager* Instance(); //singleton
+
+	Scene* GetActiveScene();
+
+	void SetActiveScene();
+
+private:
+	static SceneManager* _instance;
 	/// @brief Constructor
 	SceneManager();
 	/// @brief Destructor
 	virtual ~SceneManager();
 
-private:
+	Scene* currentScene = nullptr;
+
+	enum Active {startscene, gamescene};
+	Active active;
 };
 
 #endif

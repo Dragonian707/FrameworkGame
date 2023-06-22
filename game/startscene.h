@@ -2,6 +2,7 @@
 #define STARTSCENE_H
 
 #include "scene.h"
+#include "button.h"
 
 class StartScene : public Scene
 {
@@ -17,6 +18,10 @@ public:
 	virtual void update(float deltaTime);
 
 private:
+	Button* startbutton;
+	Button* quitbutton;
+
+	void StartGame();
 };
 
 #endif

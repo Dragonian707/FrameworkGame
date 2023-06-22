@@ -5,6 +5,7 @@
 #include "spawner.h"
 #include "player.h"
 #include "textsprite.h"
+#include "pausehud.h"
 
 //class Spawner;
 
@@ -25,14 +26,18 @@ private:
 	Music testTrack;
 	Spawner* spawner;
 	Player* player;
+	PauseHud* pauseHud;
 
 	std::vector<Spike*> spikes;
 
 	float timer = 0;
+	bool paused = false;
 
 	TextSprite* failtext;
+	TextSprite* goToMouse;
 
 	void ResetScene();
+	void PauseGame();
 };
 
 #endif

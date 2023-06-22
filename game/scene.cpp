@@ -49,6 +49,12 @@ void Scene::DeleteObject(Sprite* sprite)
 		{
 			sprites.erase(sprites.begin() + i);
 			delete sprite;
+			sprite = nullptr;
 		}
 	}
+}
+
+void Scene::CloseGame()
+{
+	state = closegame;
 }

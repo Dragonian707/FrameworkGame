@@ -22,8 +22,8 @@ DrawSprite::~DrawSprite()
 
 void DrawSprite::UpdateObject(float deltatime)
 {
-	this->update(deltatime);
 	this->Draw();
+	this->update(deltatime);
 }
 
 void DrawSprite::Draw()

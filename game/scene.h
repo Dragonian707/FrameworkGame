@@ -16,10 +16,16 @@ public:
 	void AddObject(Sprite* object);
 	void DeleteObject(Sprite* object);
 
+	int activescene;
+	enum State {running, closegame};
+	State state = running;
+
 	friend class Core;
 private:
 	virtual void UpdateObject(float deltatime);
 	std::vector<Sprite*> sprites;
+protected:
+	void CloseGame();
 };
 
 #endif

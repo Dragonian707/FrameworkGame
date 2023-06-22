@@ -13,6 +13,8 @@ public:
 
 	void Run(Scene* scene);
 
+	bool running = true;
+
 private:
 	void SetDeltatime();
 	double deltaTime;
