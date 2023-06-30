@@ -42,8 +42,11 @@ bool Player::CheckReady()
 	ready = false;
 	if (Vector2Distance(position, GetMousePosition()) <= texture.width * scale && !paused)
 	{
-		HideCursor();
 		ready = true;
+	}
+	if (color.g == 0 && !paused)
+	{
+		return true;
 	}
 	return ready;
 }

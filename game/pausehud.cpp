@@ -14,13 +14,16 @@ PauseHud::PauseHud() : DrawSprite("assets/pausehud.png")
 	pausedText->SetMessage("PAUSED");
 	pausedText->position = Vector2(SCRWIDTH / 2, -50);
 
-	Resume = new Button("Resume", Vector2(SCRWIDTH / 2, SCRHEIGHT / 2 - 100));
+	Resume = new Button("Resume", Vector2(SCRWIDTH / 2, SCRHEIGHT / 2 - 150));
 	Resume->SetMethod(std::bind(&PauseHud::ResumeGame, this));
 
-	Reset = new Button("Restart", Vector2(SCRWIDTH / 2, SCRHEIGHT / 2));
+	Reset = new Button("Restart", Vector2(SCRWIDTH / 2, SCRHEIGHT / 2 - 50));
 	Reset->SetMethod(std::bind(&PauseHud::ResetGame, this));
 
-	Quit = new Button("Exit", Vector2(SCRWIDTH / 2, SCRHEIGHT / 2 + 100));
+	Options = new Button("Options", Vector2(SCRWIDTH / 2, SCRHEIGHT / 2 + 50));
+	Options->SetMethod(std::bind(&PauseHud::OpenOptions, this));
+
+	Quit = new Button("Exit", Vector2(SCRWIDTH / 2, SCRHEIGHT / 2 + 150));
 	Quit->SetMethod(std::bind(&PauseHud::ExitGame, this));
 }
 
@@ -28,6 +31,15 @@ PauseHud::~PauseHud()
 {
 	delete pausedText;
 	pausedText = nullptr;
+
+	delete Resume;
+	Resume = nullptr;
+
+	delete Reset;
+	Reset = nullptr;
+
+	delete Quit;
+	Quit = nullptr;
 }
 
 void PauseHud::update(float deltaTime)
@@ -36,6 +48,7 @@ void PauseHud::update(float deltaTime)
 	Resume->UpdateObject(deltaTime);
 	Reset->UpdateObject(deltaTime);
 	Quit->UpdateObject(deltaTime);
+	Options->UpdateObject(deltaTime);
 
 	if (timer >= 1)
 	{
@@ -56,6 +69,10 @@ void PauseHud::ResumeGame()
 void PauseHud::ResetGame()
 {
 	state = restart;
+}
+void PauseHud::OpenOptions()
+{
+	state = options;
 }
 void PauseHud::ExitGame()
 {

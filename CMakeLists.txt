@@ -41,6 +41,8 @@ add_executable(${PROJECT_NAME}
 	game/button.h
 	game/pausehud.cpp
 	game/pausehud.h
+	game/optionscene.cpp
+	game/optionscene.h
 )
 file(
 	COPY game/assets

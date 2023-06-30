@@ -23,7 +23,8 @@ public:
 	virtual void update(float deltaTime);
 
 private:
-	Music testTrack;
+	Music gametrack;
+	Music pausetrack;
 	Spawner* spawner;
 	Player* player;
 	PauseHud* pauseHud;
@@ -31,13 +32,19 @@ private:
 	std::vector<Spike*> spikes;
 
 	float timer = 0;
+	float score = 0;
 	bool paused = false;
+	int patternchance;
+
+	float spawndelay;
 
 	TextSprite* failtext;
 	TextSprite* goToMouse;
+	TextSprite* scoretext;
 
 	void ResetScene();
 	void PauseGame();
+	void OpenOptions();
 };
 
 #endif

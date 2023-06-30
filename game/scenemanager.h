@@ -6,6 +6,7 @@
 #include "scene.h"
 #include "startscene.h"
 #include "gamescene.h"
+#include "optionscene.h"
 
 class SceneManager
 {
@@ -25,7 +26,7 @@ private:
 
 	Scene* currentScene = nullptr;
 
-	enum Active {startscene, gamescene};
+	enum Active {startscene, gamescene, optionscene};
 	Active active;
 };
 

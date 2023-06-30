@@ -23,7 +23,7 @@ public:
 
 	virtual void UpdateObject(float deltatime);
 
-	Texture2D getTuxture() { return texture; };
+	Texture2D getTexture() { return texture; };
 
 private:
 };

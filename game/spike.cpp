@@ -5,16 +5,34 @@
 
 
 
-Spike::Spike(bool toMouse, Vector2 pos) : DrawSprite("assets/spike.png")
+Spike::Spike(bool toMouse, Vector2 pos, Color col) : DrawSprite("assets/spike.png")
 {
-	speed = 400;
+	std::ifstream option("options.txt");
+	std::vector<std::string> s;
+	std::string temp;
+	while (std::getline(option, temp, ':'))
+	{
+		s.push_back(temp);
+	}
+
+	if (!s.empty()) 
+	{ 
+		int sp = std::stoi(s[1]);
+		if (sp > 1000) { sp = 1000; };
+		if (sp < 10) { sp = 10; };
+		speed = sp;
+	}
+	else
+	{
+		speed = 400;
+	}
+
 	lifeforce = 5;
 	timer = 0;
 	position = pos;
-	color = DARKBLUE;
+	color = col;
 	if (toMouse)
 	{
-		color = RED;
 		PointToMouse();
 	}
 }
@@ -31,7 +49,7 @@ void Spike::update(float deltatime)
 		Move(deltatime);
 		timer += deltatime;
 	}
-	if (timer >= lifeforce)
+	if (timer >= lifeforce && (position.x < -50 || position.x > SCRWIDTH + 50 || position.y < -50 || position.y > SCRHEIGHT + 50))
 	{
 		dead = true;
 	}

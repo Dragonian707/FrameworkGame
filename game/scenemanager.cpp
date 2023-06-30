@@ -50,14 +50,19 @@ void SceneManager::SetActiveScene()
 	switch (currentScene->activescene)
 	{
 		case 0:
-			active = startscene;
 			delete currentScene;
 			currentScene = new StartScene();
+			active = startscene;
 			break;
 		case 1:
-			active = gamescene;
 			delete currentScene;
 			currentScene = new GameScene();
+			active = gamescene;
+			break;
+		case 2:
+			delete currentScene;
+			currentScene = new OptionScene(active);
+			active = optionscene;
 			break;
 		default:
 			active = startscene;

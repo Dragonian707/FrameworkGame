@@ -22,9 +22,13 @@ Button::~Button()
 
 void Button::update(float deltaTime)
 {
+	buttontext->position = position;
+	buttontext->scale = scale;
+	buttontext->UpdateObject(deltaTime);
+
 	Vector2 mpos = GetMousePosition();
-	float texwidhalf = texture.width / 2;
-	float texheihalf = texture.height / 2;
+	float texwidhalf = texture.width / 2 * scale;
+	float texheihalf = texture.height / 2 * scale;
 
 	if (mpos.x >= position.x - texwidhalf && mpos.x <= position.x + texwidhalf && mpos.y >= position.y - texheihalf && mpos.y <= position.y + texheihalf)
 	{
@@ -42,9 +46,6 @@ void Button::update(float deltaTime)
 	{
 		color = WHITE;
 	}
-
-
-	buttontext->UpdateObject(deltaTime);
 }
 
 void Button::SetMethod(std::function<void()> method)

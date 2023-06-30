@@ -26,10 +26,19 @@ public:
 
 	//Spike* Spawn(bool pattern);
 	std::vector<Spike*> Spawn(bool pattern);
+
+	Color GetPlayerColor() { return PlayerColor; };
 private:
 	//virtual void UpdateObject(float deltatime);
 
 	std::vector<Spike*> Pattern(int pattern);
+	std::map<std::string, Color> colors{ {"blue", BLUE}, {"Red", RED},  {"Green", GREEN}, {"Yellow", YELLOW}, {"Purple", PURPLE}, {"White", WHITE}, {"Brown", BROWN}, {"Orange",ORANGE}, {"Pink", PINK}, {"Lime", LIME}, {"Violet", VIOLET}, {"Gray", GRAY} };
+
+	Color PlayerColor;
+	Color SpikeColor;
+	Color PatternColor;
+
+	void ParseColors();
 
 	//Scene* scene;
 };

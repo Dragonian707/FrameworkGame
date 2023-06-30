@@ -18,7 +18,7 @@ public:
 	/// @return void
 	virtual void update(float deltaTime);
 
-	enum State { nothing, resume, restart, exit };
+	enum State { nothing, resume, restart, options, exit };
 	State state = nothing;
 private:
 	TextSprite* pausedText;
@@ -27,10 +27,12 @@ private:
 	Button* Resume;
 	Button* Reset;
 	Button* Quit;
+	Button* Options;
 
 	void ResumeGame();
 	void ResetGame();
 	void ExitGame();
+	void OpenOptions();
 };
 
 #endif

@@ -20,8 +20,12 @@ public:
 private:
 	Button* startbutton;
 	Button* quitbutton;
+	Button* optionbutton;
+
+	Music backtrack;
 
 	void StartGame();
+	void OpenOptions();
 };
 
 #endif
